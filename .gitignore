@@ -1,2 +1,5 @@
 # Bytecode files
 *.pyc
+
+# Personal account info for SendGrid
+backend/send_grid_account_info.py
