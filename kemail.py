@@ -20,7 +20,7 @@ class EmailHandler(webapp2.RequestHandler):
         if reply.code == httplib.OK:
             response = "Your message was sent!"
         else:
-            response = "We're sorry, but we could not send your message at this time."
+            response = "Your message could not be sent at this time."
 
 
         self.response.write(response)
