@@ -1,5 +1,6 @@
 import webapp2
 import json
+import httplib
 
 from backend.send_grid_email import *
 
@@ -16,7 +17,7 @@ class EmailHandler(webapp2.RequestHandler):
         s_g_email = SendGridEmail(self.request)
         reply = s_g_email.send_email()
 
-        if reply.code == 200:
+        if reply.code == httplib.OK:
             response = "Your message was sent!"
         else:
             response = "We're sorry, but we could not send your message at this time."
