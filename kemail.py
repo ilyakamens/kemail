@@ -2,7 +2,7 @@ import webapp2
 import json
 import httplib
 
-from backend.send_grid_email import *
+from backend.sendgrid_email import *
 
 class DefaultHandler(webapp2.RequestHandler):
     def get(self):
