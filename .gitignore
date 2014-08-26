@@ -2,4 +2,4 @@
 *.pyc
 
 # Personal account info for SendGrid
-backend/send_grid_account_info.py
+backend/sendgrid_account_info.py
