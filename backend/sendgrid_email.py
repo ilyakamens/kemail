@@ -1,5 +1,5 @@
 from base_email import *
-from send_grid_account_info import *
+from sendgrid_account_info import *
 
 class SendGridEmail(BaseEmail):
 
