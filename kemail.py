@@ -2,7 +2,7 @@ import webapp2
 import json
 import httplib
 
-from backend.sendgrid_email import *
+from backend.emailer import *
 
 class DefaultHandler(webapp2.RequestHandler):
     def get(self):
@@ -14,16 +14,13 @@ class EmailHandler(webapp2.RequestHandler):
         # validate data...
         # if validation passes...
 
-        s_g_email = SendGridEmail(self.request)
-        reply = s_g_email.send_email()
-
-        if reply.code == httplib.OK:
-            response = "Your message was sent!"
+        if Emailer.send_email(self.request):
+            message = "Your message was sent!"
         else:
-            response = "Your message could not be sent at this time."
+            message = "Your message could not be sent at this time."
 
 
-        self.response.write(response)
+        self.response.write(message)
 
 application = webapp2.WSGIApplication([
     ('/', DefaultHandler),

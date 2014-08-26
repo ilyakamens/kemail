@@ -1,9 +1,9 @@
 from base_email import *
 
-class SendGridEmail(BaseEmail):
+class SendgridEmail(BaseEmail):
 
 	def __init__(self, request):
-		super(SendGridEmail, self).__init__()
+		super(SendgridEmail, self).__init__()
 
 		self.data['api_user'] = SENDGRID_API_USER
 		self.data['api_key'] = SENDGRID_API_KEY
