@@ -4,6 +4,7 @@ import cgi
 import webapp2
 
 from abc import ABCMeta, abstractmethod
+from account_info import *
 
 class BaseEmail(object):
 	__metaclass__ = ABCMeta
