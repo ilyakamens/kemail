@@ -23,11 +23,9 @@ class BaseEmail(object):
 
 	def send_email(self):
 		self.prune_data()
-		print
-		print self.data
-		print
 		data = urllib.urlencode(self.data)
 		req = urllib2.Request(self.url, data)
 		response = urllib2.urlopen(req)
+
 		return response
 
