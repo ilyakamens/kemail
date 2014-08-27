@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<h3>Send an email to someone:</h3>
+	<h2>Hello, %s!</h2>
+	<h3>You can send %s more email%s today.</h3>
 	<h5>(* Denotes a mandatory field)</h5>
 
 	<form action="/email" method="post" size="50">
@@ -9,19 +10,14 @@
 		<br>
 		<input type="text" name="addressee_email" placeholder="someone@example.com" size="50" required>
 		<br><br>
+		Subject:
+		<br>
+		<input type="text" name="subject" placeholder="No Subject"size="50" required>
+		<br><br>
 		Message *:
 		<br>
 		<input type="text" name="message" placeholder="Your message" size="50" required>
 		<br><br>
-		Destination Name:
-		<br>
-		<input type="text" name="to_name" placeholder="Joe Schmoe"size="50">
-		<br><br>
-		Subject:
-		<br>
-		<input type="text" name="subject" placeholder="No Subject"size="50">
-		<br><br>
-		
 		<input type="submit" value="Send">
 		<input type="reset" value="Reset">
 	</form>
