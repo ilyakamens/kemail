@@ -8,6 +8,7 @@ class MailgunEmail(BaseEmail):
 		self.data['to'] = cgi.escape(request.get("addressee_email"))
 		self.data['subject'] = cgi.escape(request.get("subject"))
 		self.data['text'] = cgi.escape(request.get("message"))
+		# Emails won't sent if not from this addres... due to free account
 		self.data['from'] = 'postmaster@' + MAILGUN_SUBDOMAIN
 
 		# Test URl to see POST request data
