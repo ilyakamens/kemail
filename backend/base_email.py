@@ -12,6 +12,7 @@ class BaseEmail(object):
 		self.data = {}
 		self.url = ''
 		self.required = {}
+		self.auth = ()
 		pass
 
 	def prune_data(self):
@@ -21,7 +22,7 @@ class BaseEmail(object):
 
 	def send_email(self):
 		self.prune_data()
-		request = Request(self.url, self.data)
+		request = Request(self.url, self.data, self.auth)
 		return request.send_request(Request.POST)
 		
 

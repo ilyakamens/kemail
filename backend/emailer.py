@@ -2,7 +2,8 @@ import os, re, httplib
 
 class Emailer(object):
 
-	def __init__(self, user_data):
+	def __init__(self, request, user_data):
+		self.request = request
 		self.user_data = user_data
 
 	def get_dynamic_inst_data(self):
@@ -15,7 +16,7 @@ class Emailer(object):
 		# Create list of (module name, module) pairs for dynamic class instantiation
 		return [(module_name, __import__(module_name, globals(), locals(), ['object'], -1)) for module_name in module_names]
 
-	def send_email(self, request):
+	def send_email(self):
 		dynamic_inst_data = self.get_dynamic_inst_data()
 
 		for module_name, module in dynamic_inst_data:
@@ -25,12 +26,14 @@ class Emailer(object):
 				loaded_class = getattr(module, class_name)
 
 				# Create an instance of the class
-				instance = loaded_class(request)
+				instance = loaded_class(self.request)
 				response = instance.send_email()
 				if not response or response.code != httplib.OK:
 					continue
 				else:
 					self.user_data.increment_emails_sent_today()
+					self.user_data.delete_request()
+					# print response.read()
 					return True
 
 		return False

@@ -8,15 +8,15 @@
 	<form action="/email" method="post" size="50">
 		Destination Email *:
 		<br>
-		<input type="text" name="addressee_email" placeholder="someone@example.com" size="50" required>
+		<input type="text" name="addressee_email" value="%s" placeholder="someone@example.com" size="50" required>
 		<br><br>
 		Subject *:
 		<br>
-		<input type="text" name="subject" placeholder="No Subject"size="50" required>
+		<input type="text" name="subject" value="%s" placeholder="No Subject"size="50" required>
 		<br><br>
 		Message *:
 		<br>
-		<input type="text" name="message" placeholder="Your message" size="50" required>
+		<input type="text" name="message" value="%s" placeholder="Your message" size="50" required>
 		<br><br>
 		<input type="submit" value="Send">
 		<input type="reset" value="Reset">

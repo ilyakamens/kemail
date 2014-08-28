@@ -20,22 +20,4 @@ class MailgunEmail(BaseEmail):
 
 		self.required = {'to' : True, 'subject' : True, 'text' : True, 'from' : True}
 
-		self.set_up_auth()
-
-	def set_up_auth(self):
-		# create a password manager
-		password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
-
-		# Add the username and password.
-		password_mgr.add_password(None, self.url, 'api', MAILGUN_API_KEY)
-		handler = urllib2.HTTPBasicAuthHandler(password_mgr)
-
-		# Create "opener" (OpenerDirector instance)
-		opener = urllib2.build_opener(handler)
-
-		# Use the opener to fetch a URL
-		# This is commented out because calling it results in an HTTP Error 405
-		# opener.open(self.url)
-
-		# Install the opener.
-		urllib2.install_opener(opener)
+		self.auth = ('api', MAILGUN_API_KEY)
