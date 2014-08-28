@@ -1,10 +1,8 @@
-import urllib
-import urllib2
 import cgi
 import webapp2
 
 from abc import ABCMeta, abstractmethod
-from account_info import *
+from request import *
 
 class BaseEmail(object):
 	__metaclass__ = ABCMeta
@@ -23,9 +21,7 @@ class BaseEmail(object):
 
 	def send_email(self):
 		self.prune_data()
-		data = urllib.urlencode(self.data)
-		req = urllib2.Request(self.url, data)
-		response = urllib2.urlopen(req)
-
-		return response
+		request = Request(self.url, self.data)
+		return request.send_request(Request.POST)
+		
 

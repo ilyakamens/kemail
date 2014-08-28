@@ -1,3 +1,6 @@
+import urllib2
+
+from account_info import MAILGUN_SUBDOMAIN, MAILGUN_SUBDOMAIN, MAILGUN_API_KEY
 from base_email import *
 
 class MailgunEmail(BaseEmail):

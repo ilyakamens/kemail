@@ -1,4 +1,4 @@
-import pkgutil, sys, os, re, httplib, urllib2
+import os, re, httplib
 
 class Emailer(object):
 
@@ -26,12 +26,10 @@ class Emailer(object):
 
 				# Create an instance of the class
 				instance = loaded_class(request)
-				try:
-					response = instance.send_email()
-				except urllib2.HTTPError:
+				response = instance.send_email()
+				if not response or response.code != httplib.OK:
 					continue
-
-				if response.code == httplib.OK:
+				else:
 					self.user_data.increment_emails_sent_today()
 					return True
 

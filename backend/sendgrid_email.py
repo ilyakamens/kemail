@@ -1,3 +1,4 @@
+from account_info import SENDGRID_API_USER, SENDGRID_API_KEY
 from base_email import *
 
 class SendgridEmail(BaseEmail):
