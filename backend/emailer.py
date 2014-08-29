@@ -105,9 +105,9 @@ class Emailer(object):
 				mod_name = some_example_module
 				output = SomeExampleModule
 		"""
-	    output = ''
-	    words = mod_name.split('_')
+		output = ''
+		words = mod_name.split('_')
 
-	    for word in words:
-	        output += word.title()
-	    return output
+		for word in words:
+			output += word.title()
+		return output
