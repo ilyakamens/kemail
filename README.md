@@ -32,4 +32,4 @@ Back-end
 - I would transform it more into an API. Right now the responses don't make use of HTTP status codes, and it's
   designed for someone using the web interface. In addition to making use of different HTTP status codes, I'd probably
   return a JSON encoded string with more detailed information.
-- I don't have any automated tests as it wasn't built to be an API, so I'd test is as I transformed it. 
+- I don't have any automated tests as it wasn't built to be an API, so I'd test it as I transformed it. 
